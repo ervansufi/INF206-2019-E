@@ -21,7 +21,7 @@
 			<br/>
 			<br/>
 			<center>
-				<a class="link" href="index.html"><b>Kembali</b></a>
+				<a class="link" href="index.php"><b>Kembali</b></a>
 			</center>
 		</form>
 		
