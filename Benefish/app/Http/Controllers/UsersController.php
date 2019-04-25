@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Users;
 
 class UsersController extends Controller
 {
@@ -13,7 +14,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
@@ -21,10 +22,18 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create( Request $data)
     {
-        //
+        $user = new Users();
+        $user->name = $data->input('name');
+        $user->password = $data->input('password');
+        $user->email = $data->input('email');
+        $user->no_hp = $data->input('no_hp');
+
+        $user->save();
+        return view('beranda');
     }
+
 
     /**
      * Store a newly created resource in storage.

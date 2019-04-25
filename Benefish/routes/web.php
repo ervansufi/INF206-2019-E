@@ -29,3 +29,6 @@ Route::get('/riwayat-lelang', 'WebController@rLelang');
 // jika /riwayat-bid dia akan diarahkan ke halaman riwayat_bid
 Route::get('/riwayat-bid', 'WebController@rBid');
 
+// untuk memasukkan data users ke dalam database
+Route::post('/insert', 'UsersController@create');
+
