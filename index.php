@@ -18,7 +18,7 @@
   </head>
 
   <body>
-    <h2>Beranda</h2>
+    <h2>beranda</h2>
 <<<<<<< HEAD
     <a class="link" href="login.php"><b>Sing In</b></a> 
     <a class="link" href="register.php"><b>Sing Up</b></a>
