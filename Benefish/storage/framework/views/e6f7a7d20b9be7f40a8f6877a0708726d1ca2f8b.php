@@ -1,13 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Beranda</title>
-</head>
-<body>
-    Ini adalah beranda
-</body>
-</html>
-<?php /**PATH C:\xampp\htdocs\laravel\resources\views/beranda.blade.php ENDPATH**/ ?>
+<?php $__env->startSection('title'); ?>
+    Beranda
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header card-header-info">Dashboard</div>
+
+                <div class="card-body">
+                    <?php if(session('status')): ?>
+                        <div class="alert alert-success" role="alert">
+                            <?php echo e(session('status')); ?>
+
+                        </div>
+                    <?php endif; ?>
+
+                    isi konten disini
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\laravel\resources\views/beranda.blade.php ENDPATH**/ ?>

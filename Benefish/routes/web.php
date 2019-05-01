@@ -32,3 +32,7 @@ Route::get('/riwayat-bid', 'WebController@rBid');
 // untuk memasukkan data users ke dalam database
 Route::post('/insert', 'UsersController@create');
 
+// akan mengarah kesini pada saat selesai login atau register
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();

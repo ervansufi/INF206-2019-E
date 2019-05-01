@@ -13,26 +13,15 @@ class UsersController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-
-    }
+    { }
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create( Request $data)
-    {
-        $user = new Users();
-        $user->name = $data->input('name');
-        $user->password = $data->input('password');
-        $user->email = $data->input('email');
-        $user->no_hp = $data->input('no_hp');
-
-        $user->save();
-        return view('beranda');
-    }
+    public function create(Request $data)
+    { }
 
 
     /**
