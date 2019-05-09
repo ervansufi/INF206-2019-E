@@ -12,10 +12,10 @@
 */
 
 // jika / dia akan diarahkan ke halaman index
-Route::get('/', 'WebController@index');
+Route::get('/', 'HomeController@index');
 
 // jika /buat-lelang dia akan diarahkan ke halaman buat_lelang
-Route::get('/buat-lelang', 'WebController@lelang');
+Route::get('/buat-lelang', 'WebController@lelang')->middleware('auth');
 
 // jika /login dia akan diarahkan ke halaman login
 Route::get('/login', 'WebController@login');
@@ -24,15 +24,9 @@ Route::get('/login', 'WebController@login');
 Route::get('/register', 'WebController@register');
 
 // jika /riwayat-lelang dia akan diarahkan ke halaman riwayat_lelang
-Route::get('/riwayat-lelang', 'WebController@rLelang');
+Route::get('/riwayat-lelang', 'WebController@rLelang')->middleware('auth');
 
 // jika /riwayat-bid dia akan diarahkan ke halaman riwayat_bid
-Route::get('/riwayat-bid', 'WebController@rBid');
-
-// untuk memasukkan data users ke dalam database
-Route::post('/insert', 'UsersController@create');
-
-// akan mengarah kesini pada saat selesai login atau register
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/riwayat-bid', 'WebController@rBid')->middleware('auth');
 
 Auth::routes();
