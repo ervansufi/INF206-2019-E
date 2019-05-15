@@ -29,4 +29,12 @@ Route::get('/riwayat-lelang', 'WebController@rLelang')->middleware('auth');
 // jika /riwayat-bid dia akan diarahkan ke halaman riwayat_bid
 Route::get('/riwayat-bid', 'WebController@rBid')->middleware('auth');
 
+Route::get('/bid', 'BidController@index')->name('bid');
+Route::get('/bid/tambah/{lelang_id}', 'BidController@create')->name('bid.tambah');
+Route::post('/bid/simpan', 'BidController@store')->name('bid.simpan');
+Route::get('/bid/{id}/edit', 'BidController@edit')->name('bid.edit');
+Route::post('/bid/{id}/update', 'BidController@update')->name('bid.update');
+Route::get('/bid/{id}/delete', 'BidController@destroy')->name('bid.delete');
+
+
 Auth::routes();
