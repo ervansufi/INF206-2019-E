@@ -1,0 +1,43 @@
+.bidding-info {
+  width: 100%;
+  th {
+    width: 30%;
+  }
+}
+
+
+
+.list-wrapper {
+  .list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 8px;
+    p {
+      margin: 0;
+    }
+    &:nth-of-type(2n) {
+      background-color: $body-bg;
+    }
+  }
+  .list-title {
+    font-size: 16px;
+  }
+  .item-info {
+
+  }
+  .action-btn {
+    .btn {
+      color: #fff;
+      border-radius: 50%;
+      height: 37px;
+      width: 37px;
+    }
+  }
+}
+
+// .list-bidding {
+//   display: flex;
+//
+//   justify-content: space-between;
+// }

@@ -9,7 +9,7 @@
     <div class="row justify-content-center">
         <div class="col-lg-5 col-md-6 ml-auto mr-auto">
             <div class="card">
-                <div class="text-center card-header card-header-info">{{ __('Register') }}</div>
+                <div class="bg-primary text-center card-header card-header-info">{{ __('Register') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
