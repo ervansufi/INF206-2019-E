@@ -1,0 +1,91 @@
+.navbar {
+  .nav-link,
+  .navbar-brand {
+    color: $on-primary-color;
+  }
+}
+.navbar-bg {
+  background-color: $primary-color;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+.navbar-nav {
+  .nav-item {
+    .nav-link {
+      font-size: 18px;
+      color: $on-primary-color;
+    }
+    &.active {
+      .nav-link {
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.home-page-header {
+  position: relative;
+  left: 0;
+  width: 100%;
+  z-index: -10;
+  .header-background {
+    img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      object-position: 0px -400px;
+    }
+    &::after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: " ";
+      width: 100%;
+      height: 100%;
+      background-color: transparentize($primary-color, 0.2);
+    }
+  }
+  .header-welcome-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: $on-primary-color;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    h1 {
+      font-family: $font-family-serif;
+    }
+  }
+}
+
+.card-lelang {
+  background-color: transparent !important;
+  border: 0;
+  .card-img-top {
+    border: 0;
+    border-radius: calc(0.25rem - 1px);
+  }
+  .card-body {
+    padding: .5rem 0.75rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: #f8fafcc2;
+    width: 100%;
+  }
+}
+
+.btn-primary {
+  color: $on-primary-color;
+}
+
+.form-control {
+  &:focus, &.filled {
+    border:2px solid $secondary-color;
+    transition: all .2s ease-in-out;
+  }
+}
