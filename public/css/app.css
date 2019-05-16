@@ -10788,6 +10788,12 @@ a.text-dark:focus {
   width: 37px;
 }
 
+#preview-video {
+  width: 90%;
+  margin: 0 5%;
+  min-height: 100%;
+}
+
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
