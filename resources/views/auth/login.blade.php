@@ -17,7 +17,7 @@
 
                         <div class="form-group row">
                             <div class="col-md-12">
-                                <input placeholder="Masukkan Email" id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                <input placeholder="Masukkan Email" id="email" type="text" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}"   autocomplete="email" autofocus>
 
                                 @if ($errors->has('email'))
                                     <span class="invalid-feedback" role="alert">
@@ -29,7 +29,7 @@
 
                         <div class="form-group row">
                             <div class="col-md-12">
-                                <input placeholder="Masukkan Password" id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required autocomplete="current-password">
+                                <input placeholder="Masukkan Password" id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password"   autocomplete="current-password">
 
                                 @if ($errors->has('password'))
                                     <span class="invalid-feedback" role="alert">
@@ -42,7 +42,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-12 text-center">
                                 <button type="submit" class="btn btn-info">
-                                    {{ __('Login') }}
+                                    {{ __('Masuk') }}
                                 </button>
                             </div>
                         </div>
