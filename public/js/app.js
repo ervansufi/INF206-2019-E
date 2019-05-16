@@ -36845,8 +36845,6 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! ./main */ "./resources/js/main.js");
 
-__webpack_require__(/*! ./lelang */ "./resources/js/lelang.js");
-
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -36904,26 +36902,6 @@ if (token) {
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
-
-/***/ }),
-
-/***/ "./resources/js/lelang.js":
-/*!********************************!*\
-  !*** ./resources/js/lelang.js ***!
-  \********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-$('#upload-video').change(function () {
-  var file = this.files[0];
-  var reader = new FileReader();
-
-  reader.onload = function (e) {
-    $("#preview-video").attr('src', e.target.result);
-  };
-
-  reader.readAsDataURL(file);
-});
 
 /***/ }),
 

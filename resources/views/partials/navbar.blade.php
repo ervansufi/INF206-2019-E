@@ -16,8 +16,8 @@
                         Lelang
                     </a>
                     <div class="dropdown-menu" aria-labelledby="lelangDropdown">
-                        <a class="dropdown-item" href="{{ route('buat.lelang') }}">Buat Lelang</a>
-                        <a class="dropdown-item" href="{{ route('riwayat.lelang') }}">Riwayat Lelang</a>
+                        <a class="dropdown-item" href="{{ route('lelang.tambah') }}">Buat Lelang</a>
+                        <a class="dropdown-item" href="{{ route('lelang') }}">Riwayat Lelang</a>
                     </div>
                 </li>
                 @guest
