@@ -1,0 +1,36 @@
+// Body
+$body-bg: #f8fafc;
+
+// Typography
+$font-family-sans-serif: 'PT Sans', sans-serif;
+$font-family-serif: 'Lora', serif;
+$font-size-base: 0.9rem;
+$line-height-base: 1.6;
+
+// Colors
+$blue: #3490dc;
+$indigo: #6574cd;
+$purple: #9561e2;
+$pink: #f66D9b;
+$red: #e3342f;
+$orange: #f6993f;
+$yellow: #ffed4a;
+$green: #38c172;
+$teal: #4dc0b5;
+$cyan: #6cb2eb;
+
+//Colors
+$primary-color: #F18F01;
+$secondary-color: #16425B;
+// $error-color: #E83F6F;
+$error-color: #98032e;
+$success-color: #84DCCF;
+$on-primary-color: #F2F1F6;
+// $black: #312F2F;
+
+$primary:       $primary-color;
+$secondary:     $secondary-color;
+$success:       $success-color;
+// $info:          $cyan !default;
+// $warning:       $yellow !default;
+$danger:        $error-color;
