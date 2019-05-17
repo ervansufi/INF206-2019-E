@@ -17,11 +17,11 @@
 
                         <div class="form-group row">
                             <div class="col-md-12 ">
-                                <input placeholder="Masukkan Nama" id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input placeholder="Masukkan Nama" id="name" type="text" class="form-control{{ $errors->has('nama') ? ' is-invalid' : '' }}" name="nama" value="{{ old('nama') }}"  autocomplete="nama" autofocus>
 
-                                @if ($errors->has('name'))
+                                @if ($errors->has('nama'))
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('name') }}</strong>
+                                        <strong>{{ $errors->first('nama') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -29,7 +29,7 @@
 
                         <div class="form-group row">
                             <div class="col-md-12">
-                                <input placeholder="Masukkan No HP" id="no_hp" type="number" class="form-control{{ $errors->has('no_hp') ? ' is-invalid' : '' }}" name="no_hp" value="{{ old('no_hp') }}" required autocomplete="no_hp" autofocus>
+                                <input placeholder="Masukkan No HP" id="no_hp" type="number" class="form-control{{ $errors->has('no_hp') ? ' is-invalid' : '' }}" name="no_hp" value="{{ old('no_hp') }}"  autocomplete="no_hp" autofocus>
 
                                 @if ($errors->has('no_hp'))
                                     <span class="invalid-feedback" role="alert">
@@ -41,7 +41,7 @@
 
                         <div class="form-group row">
                             <div class="col-md-12">
-                                <input placeholder="Masukkan Email" id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                <input placeholder="Masukkan Email" id="email" type="text" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}"  autocomplete="email">
 
                                 @if ($errors->has('email'))
                                     <span class="invalid-feedback" role="alert">
@@ -53,7 +53,7 @@
 
                         <div class="form-group row">
                             <div class="col-md-12">
-                                <input placeholder="Masukkan Password" id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required autocomplete="new-password">
+                                <input placeholder="Masukkan Password" id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password"  autocomplete="new-password">
 
                                 @if ($errors->has('password'))
                                     <span class="invalid-feedback" role="alert">
@@ -65,14 +65,14 @@
 
                         <div class="form-group row">
                             <div class="col-md-12">
-                                <input placeholder="Masukkan Password Konfirmasi" id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                <input placeholder="Masukkan Password Konfirmasi" id="password-confirm" type="password" class="form-control" name="password_confirmation"  autocomplete="new-password">
                             </div>
                         </div>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-12 text-center">
                                 <button type="submit" class="btn btn-info">
-                                    {{ __('Register') }}
+                                    {{ __('Daftar') }}
                                 </button>
                             </div>
                         </div>
