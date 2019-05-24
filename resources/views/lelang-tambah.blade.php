@@ -12,13 +12,13 @@
             <div class="col-md-8">
               <div class="form-group">
                 <label>Jenis Tangkapan</label>
-                <input type="text" class="form-control" placeholder="Nilai Bid">
+                <input name="jenis" type="text" class="form-control" placeholder="Masukan Jenis Ikan">
               </div>
               <div class="form-group">
                 <label>Massa</label>
                 <div class="input-group">
                   <div class="input-group-prepend" style="width:80%">
-                    <input type="number" class="form-control" placeholder="Massa">
+                    <input name="massa" type="number" class="form-control" placeholder="Massa">
                   </div>
                   <select class="custom-select">
                     <option selected>Satuan</option>
@@ -34,13 +34,13 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">Rp</span>
                   </div>
-                  <input type="text" class="form-control" placeholder="Minimum Lelang">
+                  <input name="harga" type="text" class="form-control" placeholder="Minimum Lelang">
                 </div>
               </div>
               <div class="form-group">
                 <label>Pilih Video</label>
                 <div class="custom-file">
-                  <input type="file" class="custom-file-input" id="upload-video">
+                  <input name="video_ikan" type="file" class="custom-file-input" id="upload-video">
                   <label class="custom-file-label" for="upload-video">Pilih Video</label>
                 </div>
               </div>

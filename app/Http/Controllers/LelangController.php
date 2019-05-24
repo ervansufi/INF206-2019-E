@@ -36,7 +36,23 @@ class LelangController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         // validate request data
+         $this->validate($request, [
+            'jenis_ikan' => 'required|string|max:50',
+            'berat_ikan' => 'required|numeric|max:100',
+            'satuan' => 'required|numeric',
+            'harga_bid' => 'required|string|max:10',
+            'video_ikan'=> 'required|file'
+        ]);
+        // save into table
+        DB::table('ikan')->insert([
+            'ikan_jenis' => $request->jenis_ikan,
+            'ikan_berat' => $request->berat_ikan,
+            'satuan'=> $request->satuan,
+            'ikan_harga' => $request->harga_bid,
+            'ikan_video_ikan' => $request->video_ikan
+        ]);
+        return view('store',['data' => $request]);
     }
 
     /**
