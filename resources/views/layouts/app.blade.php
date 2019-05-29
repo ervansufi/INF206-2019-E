@@ -17,6 +17,15 @@
     @yield('content')
     @include('partials.footer')
     <script src="{{ asset('js/app.js') }}" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $('.custom-file-input').on('change',function(){
+            filename = $(this).val().split('\\').pop()
+            $(this).next('.custom-file-label').addClass('selected').html(filename)
+        })
+
+</script>
+
 </body>
 
 

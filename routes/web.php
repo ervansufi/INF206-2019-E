@@ -29,12 +29,14 @@ Route::post('/bid/{lelang_id}/simpan', 'BidController@store')->middleware('auth'
 Route::get('/bid/{id}/edit', 'BidController@edit')->middleware('auth')->name('bid.edit');
 Route::post('/bid/{id}/update', 'BidController@update')->middleware('auth')->name('bid.update');
 Route::get('/bid/{id}/delete', 'BidController@destroy')->middleware('auth')->name('bid.delete');
+
 Route::get('/lelang', 'LelangController@index')->middleware('auth')->name('lelang');
 Route::get('/lelang/tambah', 'LelangController@create')->middleware('auth')->name('lelang.tambah');
 Route::post('/lelang/simpan', 'LelangController@store')->middleware('auth')->name('lelang.simpan');
 Route::get('/lelang/{id}/edit', 'LelangController@edit')->middleware('auth')->name('lelang.edit');
 Route::post('/lelang/{id}/update', 'LelangController@update')->middleware('auth')->name('lelang.update');
 Route::get('/lelang/{id}/delete', 'LelangController@destroy')->middleware('auth')->name('lelang.delete');
+Route::get('/lelang/{id}/destroy', 'LelangController@delete')->middleware('auth')->name('lelang.destroy');
 Route::get('/lelang/{id}', 'LelangController@show')->middleware('auth')->name('lelang.tampil');
 
 Auth::routes();
