@@ -42,17 +42,17 @@ class LelangController extends Controller
             'berat_ikan' => 'required|numeric|max:100',
             'satuan' => 'required|numeric',
             'harga_bid' => 'required|string|max:10',
-            'video_ikan'=> 'required|file'
+            'video_ikan'=>'mimes:mpeg,ogg,mp4,webm,3gp,mov,flv,avi,wmv,ts|max:100040|required'
         ]);
         // save into table
-        DB::table('ikan')->insert([
-            'ikan_jenis' => $request->jenis_ikan,
-            'ikan_berat' => $request->berat_ikan,
+        DB::table('ikans')->insert([
+            'jenis_ikan' => $request->jenis,
+            'berat_ikan' => $request->berat,
             'satuan'=> $request->satuan,
-            'ikan_harga' => $request->harga_bid,
-            'ikan_video_ikan' => $request->video_ikan
+            'harga_bid' => $request->harga,
+            'video_ikan' => $request->video_ikan
         ]);
-        return view('store',['data' => $request]);
+        return redirect('/')->with('Berhasil Membuat Lelang Ikan');
     }
 
     /**
@@ -74,7 +74,8 @@ class LelangController extends Controller
      */
     public function edit($id)
     {
-        return view('lelang-edit');
+        $ikan = DB::table('ikan')->where('id',$id)->get();
+        return view('edit',['ikan'=>'$ikan']);
     }
 
     /**
@@ -86,7 +87,15 @@ class LelangController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         // update data ikan
+        DB::table('ikans')->where('id',$request->id)->update([
+            'jenis_ikan' => $request->jenis,
+            'berat_ikan' => $request->berat_ikan,
+            'harga_bid' => $request->harga,
+            'video_ikan' => $request->video_ikan
+        ]);
+        // alihkan halaman ke halaman ikan
+        return redirect('/lelang/{id}/update');
     }
 
     /**

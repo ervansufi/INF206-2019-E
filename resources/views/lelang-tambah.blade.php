@@ -7,7 +7,8 @@
     <div class="card">
       <div class="card-body">
         <p class="card-title h4">Buat Lelang</p>
-        <form enctype="multipart/form-data">
+        <form action="/lelang/simpan" enctype="multipart/form-data" method="post">
+        {{ csrf_field() }}
           <div class="row">
             <div class="col-md-8">
               <div class="form-group">
