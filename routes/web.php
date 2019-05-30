@@ -13,6 +13,7 @@
 
 // jika / dia akan diarahkan ke halaman index
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/tutorial', 'HomeController@tutorial')->name('tutorial');
 
 // jika /buat-lelang dia akan diarahkan ke halaman buat_lelang
 Route::get('/buat-lelang', 'WebController@lelang')->middleware('auth')->name('buat.lelang');
