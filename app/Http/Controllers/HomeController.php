@@ -14,7 +14,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $post = Ikan::all();
+        $post = Ikan::where('status', 'berlangsung')->get();
         return view('home', compact('post'));
+    }
+
+    public function tutorial()
+    {
+        return view('tutorial');
     }
 }

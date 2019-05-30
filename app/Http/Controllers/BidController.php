@@ -35,15 +35,15 @@ class BidController extends Controller
      */
     public function create($lelang_id)
     {
-        $data = Ikan::find($lelang_id);
+        $ikan = Ikan::find($lelang_id);
         $riwayat_bid = DB::table('ikans')
-            ->where('bids.lelang_id', $data->id)
+            ->where('bids.lelang_id', $ikan->id)
             ->join('bids', 'ikans.id', '=', 'bids.lelang_id')
             ->select('bids.*')
             ->orderBy('harga_lelang', 'DESC')
             ->get();
 
-        return view('bidding-tambah', compact('data', 'riwayat_bid'));
+        return view('bidding-tambah', compact('ikan', 'riwayat_bid'));
     }
 
 
@@ -57,13 +57,6 @@ class BidController extends Controller
     public function store(Request $data, $lelang_id)
     {
         $ikan = Ikan::find($lelang_id);
-        $max_harga = DB::table('ikans')
-            ->where('bids.lelang_id', $ikan->id)
-            ->join('bids', 'ikans.id', '=', 'bids.lelang_id')
-            ->select('bids.*')
-            ->orderBy('harga_lelang', 'DESC')
-            ->get()
-            ->first();
 
         $duplicate = DB::table('ikans')
             ->where([['bids.lelang_id', $ikan->id], ['bids.user_id', Auth::user()->id]])
@@ -74,10 +67,7 @@ class BidController extends Controller
             return redirect()->route('bid.tambah', $lelang_id);
         }
 
-        if ($max_harga != NULL)
-            $query = 'gt:' . $max_harga->harga_lelang;
-        else
-            $query = 'gt:' . $ikan->harga_bid;
+        $query = 'gt:' . $ikan->harga_bid;
 
         $this->validate($data, [
             'harga_bid' => ['required', 'numeric', $query]
@@ -142,15 +132,9 @@ class BidController extends Controller
     public function update(Request $data, $id)
     {
         $bid = Bid::find($id);
-        $max_harga = DB::table('ikans')
-            ->where('bids.lelang_id', $bid->lelang_id)
-            ->join('bids', 'ikans.id', '=', 'bids.lelang_id')
-            ->select('bids.*')
-            ->orderBy('harga_lelang', 'DESC')
-            ->get()
-            ->first();
+        $max_harga = $bid->harga_bid($bid->lelang_id);
 
-        $query = 'gt:' . $max_harga->harga_lelang;
+        $query = 'gt:' . $max_harga->harga_bid;
         $this->validate($data, [
             'harga_bid' => ['required', 'numeric', $query]
         ]);
