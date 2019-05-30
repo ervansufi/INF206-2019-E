@@ -67,19 +67,6 @@
                         </div>
                     </div>
                     @endforeach
-                    {{-- @for ($i=0; $i < 10; $i++)
-                    <div class="list-item">
-                        <div class="item-info">
-                            <p class="list-title">Nama Bidder {{ $i }}</p>
-                            <p>
-                                <small class="text-muted"><i class="fa fa-tag" aria-hidden="true"></i> Rp
-                                    80000</small>&nbsp;
-                                <small class="text-muted"><i class="fa fa-calendar-o" aria-hidden="true"></i> 15 May
-                                    2019 10:43</small>
-                            </p>
-                        </div>
-                    </div>
-                    @endfor --}}
             </div>
         </div>
     </div>

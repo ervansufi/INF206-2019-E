@@ -14,7 +14,6 @@
                   <hr>
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
-
                         <div class="form-group">
                             <label>Email</label>
                             <input placeholder="Masukkan Email" id="email" type="text" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}"   autocomplete="email" autofocus>
