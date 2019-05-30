@@ -9,16 +9,23 @@
             <div class="card">
                 <div class="card-body">
                     <p class="card-title h3">Edit Bidding</p>
+                    <div class="row justify-content-center">
+                        <div class="col-md-12">
+                            <video class="video-lelang" src="{{asset('videolelang/'.$ikan->video_ikan)}}" width="100%"
+                                height="400px" poster="" preload controls loop allowFullScreen></video>
+                        </div>
+                    </div>
+
                     <table class="bidding-info mb-3">
                         @php
-                            $username=DB::table('ikans')
-                            ->where('ikans.user_id',$ikan->user_id)
-                            ->join('users', 'ikans.user_id', '=', 'users.id')
-                            ->select('users.name')
-                            ->get()->first();
+                        $username=DB::table('ikans')
+                        ->where('ikans.user_id',$ikan->user_id)
+                        ->join('users', 'ikans.user_id', '=', 'users.id')
+                        ->select('users.name')
+                        ->get()->first();
 
-                            $id = DB::table('bids')
-                            ->where('bids.user_id',$data->user_id)
+                        $id = DB::table('bids')
+                        ->where('bids.user_id',$data->user_id)
                         @endphp
                         <tr>
                             <th>Nama Tangkapan</th>
@@ -41,11 +48,14 @@
                         @csrf
                         <div class="form-group">
                             <label>Nilai Bid</label>
-                            <input type="number" class="form-control{{ $errors->has('harga_bid') ? ' is-invalid' : '' }}" placeholder="Nilai Bid" name="harga_bid" value="{{ old('harga_bid') }}"  autocomplete="harga_bid">
+                            <input type="number"
+                                class="form-control{{ $errors->has('harga_bid') ? ' is-invalid' : '' }}"
+                                placeholder="Nilai Bid" name="harga_bid" value="{{ old('harga_bid') }}"
+                                autocomplete="harga_bid">
                             @if ($errors->has('harga_bid'))
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $errors->first('harga_bid') }}</strong>
-                                </span>
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('harga_bid') }}</strong>
+                            </span>
                             @endif
                         </div>
                         <button type="submit" class="btn btn-primary float-right px-4">Ubah</button>
@@ -66,7 +76,8 @@
                             <p>
                                 <small class="text-muted"><i class="fa fa-tag" aria-hidden="true"></i> Rp
                                     {{$riwayat->harga_lelang}}</small>&nbsp;
-                                <small class="text-muted"><i class="fa fa-calendar-o" aria-hidden="true"></i> {{$riwayat->created_at}}</small>
+                                <small class="text-muted"><i class="fa fa-calendar-o" aria-hidden="true"></i>
+                                    {{$riwayat->created_at}}</small>
                             </p>
                         </div>
                     </div>
@@ -77,22 +88,23 @@
         </div>
     </div>
 </div>
- <script>
-        var waktu=new Date('{{$ikan->updated_at}}').getTime();
+<script>
+    var waktu = new Date('{{$ikan->updated_at}}').getTime();
 
-        var timer=setInterval(function () {
-            sekarang= new Date().getTime()
+    var timer = setInterval(function () {
+        sekarang = new Date().getTime()
 
-            sisa=waktu-sekarang
-             menit = Math.floor((sisa % (1000 * 60 * 60)) / (1000 * 60));
-             detik = Math.floor((sisa % (1000 * 60)) / 1000);
+        sisa = waktu - sekarang
+        menit = Math.floor((sisa % (1000 * 60 * 60)) / (1000 * 60));
+        detik = Math.floor((sisa % (1000 * 60)) / 1000);
 
-            document.getElementById("waktu").innerHTML =  menit + ":" + detik ;
+        document.getElementById("waktu").innerHTML = menit + ":" + detik;
 
-            if (sisa < 0) {
-                document.getElementById("waktu").innerHTML = "Berakhir";
-            }
+        if (sisa < 0) {
+            document.getElementById("waktu").innerHTML = "Berakhir";
+        }
 
-        },1000)
-    </script>
+    }, 1000)
+
+</script>
 @endsection

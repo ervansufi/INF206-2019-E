@@ -9,6 +9,12 @@
             <div class="card">
                 <div class="card-body">
                     <p class="card-title h3">Mulai Bidding</p>
+                    <div class="row justify-content-center">
+                        <div class="col-md-12">
+                            <video class="video-lelang" src="{{asset('videolelang/'.$ikan->video_ikan)}}" width="100%" height="400px" poster="" preload controls loop allowFullScreen></video>
+                        </div>
+                    </div>
+
                     <table class="bidding-info mb-3">
                         @php
                             $username=DB::table('ikans')
