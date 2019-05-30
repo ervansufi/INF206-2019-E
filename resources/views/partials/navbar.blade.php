@@ -8,6 +8,9 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
+                    <a class="nav-link" href="{{ route('tutorial') }}">Tutorial Lelang</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{{ route('bid') }}">Bidding</a>
                 </li>
                 <li class="nav-item dropdown">
@@ -16,8 +19,8 @@
                         Lelang
                     </a>
                     <div class="dropdown-menu" aria-labelledby="lelangDropdown">
-                        <a class="dropdown-item" href="{{ route('buat.lelang') }}">Buat Lelang</a>
-                        <a class="dropdown-item" href="{{ route('riwayat.lelang') }}">Riwayat Lelang</a>
+                        <a class="dropdown-item" href="{{ route('lelang.tambah') }}">Buat Lelang</a>
+                        <a class="dropdown-item" href="{{ route('lelang') }}">Riwayat Lelang</a>
                     </div>
                 </li>
                 @guest

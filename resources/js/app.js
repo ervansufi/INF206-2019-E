@@ -7,4 +7,3 @@
 
 require('./bootstrap');
 require('./main');
-require('./lelang');

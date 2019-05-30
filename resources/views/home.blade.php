@@ -3,33 +3,51 @@
 @section('title', 'Home')
 
 @section('content')
-  <div class="home-page-header">
+<div class="home-page-header">
     <div class="header-background">
-      <img src="{{ asset('image/fisherman.jpg') }}" alt="">
+        <img src="{{ asset('image/fisherman.jpg') }}" alt="">
     </div>
     <div class="header-welcome-text">
-      <h1 class="display-2">Benefish</h1>
-      <p class="h4">Lelang Ikan Sekarang Lebih Mudah</p>
+        <h1 class="display-2">Benefish</h1>
+        <p class="h4">Lelang Ikan Sekarang Lebih Mudah</p>
     </div>
-  </div>
+</div>
 
-  <div class="container mt-5">
+<div class="container mt-5">
     <div class="row">
-      @for ($i=0; $i < 12; $i++)
+        @foreach ($post as $posts)
+        @php
+        $username=DB::table('users')
+        ->where('ikans.user_id',$posts->user_id)
+        ->join('ikans', 'users.id', '=', 'ikans.user_id')
+        ->select('users.name')
+        ->get()->first();
+
+        if($posts->waktu<time()){
+                $status = DB::table('ikans')
+            ->where('id', $posts->id)
+            ->update(['status' => 'selesai']);
+        }
+        @endphp
+
         <div class="col-sm-6 col-md-4 col-lg-3">
-          <div class="card card-lelang mb-3">
-            <img class="card-img-top" src="{{ asset('image/16_9_ratio.jpg') }}" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title m-0">Ikan Tuna 5 Kg</h5>
-              <p class="card-text m-0">
-                <small class="text-muted"><i class="fa fa-user" aria-hidden="true"></i> Muhammad Mulqan</small><br>
-                <small class="text-muted"><i class="fa fa-tag" aria-hidden="true"></i> Rp 80000</small>
-              </p>
-              <a href="{{ route('bid.tambah', $i) }}" class="btn btn-secondary btn-block mt-1 text-white">Mulai Bidding</a>
+            <div class="card card-lelang mb-3">
+                <img class="card-img-top" src="{{ asset('videolelang/image/'.$posts->image_ikan) }}" widht="300px" height="300px" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title m-0">{{$posts->Jenis_Ikan}} {{$posts->berat_ikan}}</h5>
+                    <p class="card-text m-0">
+                        <small class="text-muted"><i class="fa fa-user" aria-hidden="true"></i>
+                            {{$username->name}}</small><br>
+                        <small class="text-muted"><i class="fa fa-tag" aria-hidden="true"></i> Rp
+                            {{number_format($posts->harga_bid,0,',','.')}}</small><br>
+                    </p>
+                    <a href="{{ route('bid.tambah', $posts->id) }}"
+                        class="btn btn-secondary btn-block mt-1 text-white">Mulai
+                        Bidding</a>
+                </div>
             </div>
-          </div>
         </div>
-      @endfor
-    </div>
-  </div>
+        @endforeach
+</div>
+</div>
 @endsection

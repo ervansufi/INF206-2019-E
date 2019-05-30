@@ -12,7 +12,7 @@
                     <table class="bidding-info mb-3">
                         @php
                             $username=DB::table('ikans')
-                            ->where('ikans.id',$data->id)
+                            ->where('ikans.id',$ikan->id)
                             ->join('users', 'ikans.user_id', '=', 'users.id')
                             ->select('users.name')
                             ->get()->first();
@@ -20,11 +20,11 @@
 
                         <tr>
                             <th>Nama Tangkapan</th>
-                            <td>: {{$data->Jenis_Ikan}}</td>
+                            <td>: {{$ikan->Jenis_Ikan}}</td>
                         </tr>
                         <tr>
                             <th>Berat</th>
-                            <td>: {{$data->berat_ikan}}</td>
+                            <td>: {{$ikan->berat_ikan}}</td>
                         </tr>
                         <tr>
                             <th>Pelelang</th>
@@ -32,10 +32,10 @@
                         </tr>
                         <tr>
                             <th>Minimum Bidding</th>
-                            <td>: Rp {{$data->harga_bid}}</td>
+                            <td>: Rp {{number_format($ikan->harga_bid,0,',','.')}}</td>
                         </tr>
                     </table>
-                    <form method="POST" action="{{route('bid.simpan',$data->id)}}">
+                    <form method="POST" action="{{route('bid.simpan',$ikan->id)}}">
                         @csrf
                         <div class="form-group">
                             <label>Nilai Bid</label>
@@ -55,34 +55,40 @@
             <div class="card">
                 <div class="card-body list-wrapper">
                     <p class="card-title h3">List Bidder</p>
+                    <p class="card-title h3" id="waktu"></p>
                     @foreach ($riwayat_bid as $riwayat)
                     <div class="list-item">
                         <div class="item-info">
                             <p class="list-title">{{ $riwayat->nama_lelang }}</p>
                             <p>
                                 <small class="text-muted"><i class="fa fa-tag" aria-hidden="true"></i> Rp
-                                    {{ $riwayat->harga_lelang }}</small>&nbsp;
+                                    {{ number_format($riwayat->harga_lelang,0,',','.') }}</small>&nbsp;
                                 <small class="text-muted"><i class="fa fa-calendar-o" aria-hidden="true"></i> {{ $riwayat->created_at }}</small>
                             </p>
                         </div>
                     </div>
                     @endforeach
-                    {{-- @for ($i=0; $i < 10; $i++)
-                    <div class="list-item">
-                        <div class="item-info">
-                            <p class="list-title">Nama Bidder {{ $i }}</p>
-                            <p>
-                                <small class="text-muted"><i class="fa fa-tag" aria-hidden="true"></i> Rp
-                                    80000</small>&nbsp;
-                                <small class="text-muted"><i class="fa fa-calendar-o" aria-hidden="true"></i> 15 May
-                                    2019 10:43</small>
-                            </p>
-                        </div>
-                    </div>
-                    @endfor --}}
             </div>
         </div>
     </div>
 </div>
 </div>
+ <script>
+        var waktu=new Date('{{$ikan->updated_at}}').getTime();
+
+        var timer=setInterval(function () {
+            sekarang= new Date().getTime()
+
+            sisa=waktu-sekarang
+             menit = Math.floor((sisa % (1000 * 60 * 60)) / (1000 * 60));
+             detik = Math.floor((sisa % (1000 * 60)) / 1000);
+
+            document.getElementById("waktu").innerHTML =  menit + ":" + detik ;
+
+            if (sisa < 0) {
+                document.getElementById("waktu").innerHTML = "Berakhir";
+            }
+
+        },1000)
+    </script>
 @endsection
