@@ -34,7 +34,7 @@
                         </tr>
                         <tr>
                             <th>Minimal Bidding</th>
-                            <td>: Rp {{$ikan->harga_bid}}</td>
+                            <td>: Rp {{number_format($ikan->harga_bid,0,',','.')}}</td>
                         </tr>
                     </table>
                     <form method="POST" action="{{route('bid.update',$data->id)}}">
@@ -57,6 +57,7 @@
             <div class="card">
                 <div class="card-body list-wrapper">
                     <p class="card-title h3">List Bidder</p>
+                    <p class="card-title h3" id="waktu"></p>
 
                     @foreach ($riwayat_bid as $riwayat)
                     <div class="list-item">
@@ -71,24 +72,27 @@
                     </div>
                     @endforeach
 
-                    {{-- @for ($i=0; $i < 10; $i++)
-                    <div class="list-item">
-                        <div class="item-info">
-                            <p class="list-title">Nama Bidder {{ $i }}</p>
-                            <p>
-                                <small class="text-muted"><i class="fa fa-tag" aria-hidden="true"></i> Rp
-                                    80000</small>&nbsp;
-                                <small class="text-muted"><i class="fa fa-calendar-o" aria-hidden="true"></i> 15 May
-                                    2019 10:43</small>
-                            </p>
-                        </div>
-                    </div>
-                    @endfor --}}
-
-
                 </div>
             </div>
         </div>
     </div>
 </div>
+ <script>
+        var waktu=new Date('{{$ikan->updated_at}}').getTime();
+
+        var timer=setInterval(function () {
+            sekarang= new Date().getTime()
+
+            sisa=waktu-sekarang
+             menit = Math.floor((sisa % (1000 * 60 * 60)) / (1000 * 60));
+             detik = Math.floor((sisa % (1000 * 60)) / 1000);
+
+            document.getElementById("waktu").innerHTML =  menit + ":" + detik ;
+
+            if (sisa < 0) {
+                document.getElementById("waktu").innerHTML = "Berakhir";
+            }
+
+        },1000)
+    </script>
 @endsection

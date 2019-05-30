@@ -20,7 +20,7 @@ class CreateBidsTable extends Migration
             $table->string('nama_lelang');
             $table->bigInteger('harga_lelang');
             $table->timestamps();
-            $table->foreign('lelang_id')->references('id')->on('ikans');
+            $table->foreign('lelang_id')->references('id')->on('ikans')->onDelete('cascade');
         });
     }
 

@@ -17,11 +17,14 @@ class CreateIkansTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('user_id')->unsigned();
             $table->string('video_ikan');
+            $table->string('image_ikan');
             $table->string('Jenis_Ikan');
             $table->string('berat_ikan');
             $table->bigInteger('harga_bid');
+            $table->integer('waktu');
+            $table->string('status');
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

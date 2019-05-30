@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Ikan;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -13,6 +14,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $post = Ikan::where('status', 'berlangsung')->get();
+        return view('home', compact('post'));
+    }
+
+    public function tutorial()
+    {
+        return view('tutorial');
     }
 }
