@@ -79,9 +79,9 @@ class LelangController extends Controller
         $lelang->image_ikan = $imagenameToStore;
         $lelang->harga_bid = $data->input('harga_bid');
         $lelang->status = 'berlangsung';
-        $lelang->waktu = time() + (60 * 30);
+        $lelang->waktu = time() + (60 * $data->durasi);
         $lelang->created_at = time();
-        $lelang->updated_at = time() + (60 * 30);
+        $lelang->updated_at = time() + (60 * $data->durasi);
         $lelang->save();
 
         return redirect()->route('lelang');

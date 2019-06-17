@@ -13,9 +13,14 @@
 </head>
 
 <body>
+  <div id="content">
     @include('partials.navbar')
     @yield('content')
+    <br>
+  </div>
+  <footer id="footer">
     @include('partials.footer')
+  </footer>
     <script src="{{ asset('js/app.js') }}" type="text/javascript"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>

@@ -68,6 +68,7 @@
   .card-img-top {
     border: 0;
     border-radius: calc(0.25rem - 1px);
+    object-fit: cover;
   }
   .card-body {
     padding: .5rem 0.75rem;
@@ -88,4 +89,14 @@
     border:2px solid $secondary-color;
     transition: all .2s ease-in-out;
   }
+}
+
+#content {
+  min-height: calc(100vh - 40px);
+}
+#footer {
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
