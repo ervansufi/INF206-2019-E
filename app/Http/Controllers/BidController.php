@@ -21,7 +21,8 @@ class BidController extends Controller
         $riwayat_bid = DB::table('users')
             ->where('bids.user_id', Auth::user()->id)
             ->join('bids', 'users.id', '=', 'bids.user_id')
-            ->select('bids.*')
+            ->join('ikans', 'bids.lelang_id', '=', 'ikans.id')
+            ->select('bids.*','ikans.Jenis_Ikan')
             ->orderBy('created_at', 'DESC')
             ->get();
 

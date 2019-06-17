@@ -9,12 +9,7 @@
             <div class="card">
                 <div class="card-body">
                     <p class="card-title h3">Edit Bidding</p>
-                    <div class="row justify-content-center">
-                        <div class="col-md-12">
-                            <video class="video-lelang" src="{{asset('videolelang/'.$ikan->video_ikan)}}" width="100%"
-                                height="400px" poster="" preload controls loop allowFullScreen></video>
-                        </div>
-                    </div>
+                    <video class="video-lelang" src="{{asset('videolelang/'.$ikan->video_ikan)}}" style="width:100%;" preload controls loop allowFullScreen></video>
 
                     <table class="bidding-info mb-3">
                         @php

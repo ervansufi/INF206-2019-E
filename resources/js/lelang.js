@@ -1,8 +1,15 @@
-$('#upload-video').change(function(){
+$('#upload-image').change(function(){
   var file = this.files[0];
+  if (!file) {
+    $("#thumbnail img").attr('src', '');
+  }
   var reader = new FileReader();
   reader.onload = function(e){
-    $("#preview-video").attr('src', e.target.result);
+    $("#thumbnail img").attr('src', e.target.result);
   }
   reader.readAsDataURL(file);
 });
+
+$('#thumbnail').click(function(){
+  $('#upload-image').click();
+})

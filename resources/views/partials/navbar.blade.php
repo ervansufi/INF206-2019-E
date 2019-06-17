@@ -10,29 +10,20 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('tutorial') }}">Tutorial Lelang</a>
                 </li>
-                <li class="nav-item">
+                @auth
+                  <li class="nav-item">
                     <a class="nav-link" href="{{ route('bid') }}">Bidding</a>
-                </li>
-                <li class="nav-item dropdown">
+                  </li>
+                  <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="lelangDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Lelang
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="lelangDropdown">
-                        <a class="dropdown-item" href="{{ route('lelang.tambah') }}">Buat Lelang</a>
-                        <a class="dropdown-item" href="{{ route('lelang') }}">Riwayat Lelang</a>
-                    </div>
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Lelang
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="lelangDropdown">
+                    <a class="dropdown-item" href="{{ route('lelang.tambah') }}">Buat Lelang</a>
+                    <a class="dropdown-item" href="{{ route('lelang') }}">Riwayat Lelang</a>
+                  </div>
                 </li>
-                @guest
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}">{{ __('Masuk') }}</a>
-                </li>
-                @if (Route::has('register'))
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('register') }}">{{ __('Daftar') }}</a>
-                </li>
-                @endif
-                @else
                 <li class="nav-item dropdown">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -48,6 +39,14 @@
                         </form>
                     </div>
                 </li>
+                @endauth
+                @guest
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ route('login') }}">{{ __('Masuk') }}</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ route('register') }}">{{ __('Daftar') }}</a>
+                  </li>
                 @endguest
             </ul>
         </div>

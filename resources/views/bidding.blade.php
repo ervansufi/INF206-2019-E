@@ -14,7 +14,7 @@
             <div class="col-md-6">
                 <div class="list-item">
                     <div class="item-info">
-                        <p class="list-title">{{$riwayat->nama_lelang}}</p>
+                        <p class="list-title">{{$riwayat->Jenis_Ikan}}</p>
                         <p class="text-muted">Rp {{number_format($riwayat->harga_lelang,0,',','.')}}</p>
                         <p>
                             <small class="text-muted"><i class="fa fa-calendar-o" aria-hidden="true"></i> {{$riwayat->created_at}}</small>

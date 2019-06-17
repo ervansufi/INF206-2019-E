@@ -9,6 +9,13 @@
             <div class="card">
                 <div class="card-body">
                     <p class="card-title h4">Buat Lelang</p>
+                    <div id="thumbnail" class="mb-3">
+                      <div class="instruction">
+                        <i class="fa fa-cloud-upload" aria-hidden="true"></i>
+                        <small>Klik disini untuk memilih gambar</small>
+                      </div>
+                      <img src="" alt="">
+                    </div>
                     <form action="{{route('lelang.simpan')}}" enctype="multipart/form-data" method="post">
                         {{ csrf_field() }}
                         <div class="form-group">
@@ -61,7 +68,7 @@
                         <div class="form-group">
                             <label>Pilih Video</label>
                             <div class="custom-file">
-                                <input name="video_ikan" type="file" class="custom-file-input " id="upload-video">
+                                <input name="video_ikan" type="file" class="custom-file-input " id="upload-video" accept="video/*">
                                 <label class="custom-file-label " for="upload-video">Pilih Video</label>
                             </div>
                             @if ($errors->has('video_ikan'))
@@ -71,17 +78,10 @@
                             @endif
                         </div>
                         <div class="form-group">
-                            <label>Pilih Gambar</label>
-                            <div class="custom-file">
-                                <input name="image_ikan" type="file" class="custom-file-input " id="upload-image">
-                                <label class="custom-file-label " for="upload-image">Pilih Gambar</label>
-                            </div>
-                            @if ($errors->has('image_ikan'))
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $errors->first('image_ikan') }}</strong>
-                                </span>
-                            @endif
+                            <label>Durasi (Menit)</label>
+                            <input name="durasi" type="number" class="form-control" value="{{ old('durasi') }}">
                         </div>
+                        <input name="image_ikan" type="file" class="d-none" id="upload-image" accept="image/*">
                         <button type="submit" class="btn btn-primary float-right px-4">Submit</button>
                     </form>
                 </div>
@@ -89,4 +89,5 @@
         </div>
     </div>
 </div>
+<br>
 @endsection

@@ -9,3 +9,39 @@
     width: 100%;
   }
 }
+
+#thumbnail {
+  border: 2px dashed $primary-color;
+  width: 100%;
+  height: 300px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  .instruction {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 12px;
+    background-color: transparentize(#ffff, 0.4);
+    border-radius: 5px;
+    z-index: 10;
+    .fa {
+      font-size: 40px;
+    }
+  }
+  img {
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+    z-index: 20;
+  }
+  &:hover {
+    .instruction {
+      z-index: 30;
+    }
+  }
+}
